@@ -34,6 +34,10 @@ public class SnakeAndLadder {
                 System.out.println("No play");
                 break;
         }
+        if (playerposition > 100)
+        {
+            playerposition = playerposition - dienumber;
+        }
         if (playerposition < 0)
         {
             playerposition = 0;
