@@ -1,50 +1,105 @@
 import java.util.Random;
 
-public class SnakeAndLadder {
-	static int playerposition;
+class SnakeAndLadder {
+	static int playerposition1;
+	static int playerposition2;
 
-	public static void main(String[] args) {
+	static int count;
 
-		// uc1: the position of player starting from 0
-		System.out.println("The position of player is: " + playerposition);
+		public static void main(String[] args) {
+	 
+        while ((playerposition1 < 100) && (playerposition2 < 100))
+        {
+            player1();
+            player2();
+        }
+        if (playerposition1 == 100)
+        {
+            System.out.println("player1 won the gane");
+        }
+        if(playerposition2==100)
+        {
+        	System.out.println("player2 won the game");
+        }
 
-		// uc2: the player roll the die for the 1st time.
+    }
 		
-		 while (playerposition < 100)
-         {
-		Random r = new Random();
-		int dienumber = r.nextInt(1, 7);
-		System.out.println("player Rolling die rolling and number comes is: " + dienumber);
-		//uc3: checking for option play, no play
+        public static void player1()
+    {
+        count++;
+        System.out.println("number of time the die is rolling" + count);
+        Random r = new Random();
+        int dienumber = r.nextInt(1, 7);
+        
+        //uc3: checking for option play, no play            
         Random r2 = new Random();
         int gametime = r2.nextInt(0, 3);
-        System.out.println("snake or ladder checker: " + gametime);
         switch (gametime)
         {
             case 0:
-                playerposition = playerposition + dienumber;
-                System.out.println("Next position of the player"+playerposition);
+                playerposition1 = playerposition1 + dienumber;
+    
                 break;
             case 1:
 
-                playerposition = playerposition - dienumber;
-                System.out.println("Next position of the player: " + playerposition);
+                playerposition1 = playerposition1 - dienumber;
+
                 break;
             default:
-                System.out.println("No play");
+            	System.out.println("No play");
                 break;
         }
-        if (playerposition > 100)
+        if (playerposition1 > 100)
         {
-            playerposition = playerposition - dienumber;
+            playerposition1 = playerposition1 - dienumber;
         }
-        if (playerposition < 0)
+        if (playerposition1 < 0)
         {
-            playerposition = 0;
+            playerposition1 = 0;
         }
-        System.out.println("final position checker: " + playerposition);
+        System.out.println("player 1 position is: " + playerposition1 + " number of time the die rolled: " + count);
     }
-      System.out.println("player beat the snakes and completed the game" + playerposition);
 
-	}
+
+    
+    
+
+    public static void player2()
+    {
+        count++;
+        System.out.println("number of time the die is rolling: " + count);
+        Random r = new Random();
+        int dienumber = r.nextInt(1, 7);
+     
+        //uc3: checking for option play, no play            
+        Random r2 = new Random();
+        int gametime = r2.nextInt(0, 3);
+        switch (gametime)
+        {
+            case 0:
+                playerposition2 = playerposition2 + dienumber;
+                break;
+            case 1:
+
+                playerposition2 = playerposition2 - dienumber;
+
+                break;
+            default:
+            	System.out.println("No play");
+                break;
+        }
+        if (playerposition2 > 100)
+        {
+            playerposition2 = playerposition2 - dienumber;
+        }
+        if (playerposition2 < 0)
+        {
+            playerposition2 = 0;
+        }
+        System.out.println("player2 position is: " + playerposition2 + " number of time the die rolled: " + count);
+    }
+
+
+
 }
+
