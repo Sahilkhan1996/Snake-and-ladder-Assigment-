@@ -1,6 +1,13 @@
+public class SnakeAndLadder
+    {
+        static int playerposition;
 
-public class SnakeAndLadder {
-	public static void main(String[] args) {
-		System.out.println("Welcome to the Snake and ladder program");
-	}
-}
+        public static void main(String[] args)
+        {
+            //uc1: the position of player starting from 0
+            System.out.println("The position of player is: " + playerposition);
+            
+            
+            
+        }
+    }
